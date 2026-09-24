@@ -23,7 +23,7 @@
         </div>
 
         <span class="text-xl font-semibold text-gray-900 dark:text-white">
-          Psicología
+          {{nombreCarrera}}
         </span>
 
       </a>
@@ -198,6 +198,7 @@
 
           <!-- BOTÓN -->
           <button
+            (click)="inicioDeSesionClicked()"
             type="submit"
             class="w-full text-white bg-blue-700
                    hover:bg-blue-800

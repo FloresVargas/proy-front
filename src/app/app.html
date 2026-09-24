@@ -1,5 +1,14 @@
 <router-outlet />
 
 <!--<app-empresa></app-empresa>-->
-<app-carrera></app-carrera>
+<!--<app-carrera></app-carrera>-->
 <!--<app-estudiante></app-estudiante>-->
+
+@if (botonLoginSesionIniciadoVariable){
+  <app-empresa></app-empresa>
+} @else {
+  <app-login
+    [nombreCarrera]="'Psicologia'"
+    (inicioDeSesion)="inicioSesionLoginClicked($event)"
+  ></app-login>
+}

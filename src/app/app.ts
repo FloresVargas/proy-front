@@ -12,12 +12,18 @@ import { Empresa } from './empresa/empresa';
   selector: 'app-root',
   imports: [RouterOutlet, Pantalla, Login, Portada, Carrera, Estudiante, Empresa],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App implements OnInit{
+export class App implements OnInit {
   protected readonly title = signal('Teresa');
+
+  botonLoginSesionIniciadoVariable: boolean = false;
 
   ngOnInit(): void {
     initFlowbite();
+  }
+
+  inicioSesionLoginClicked(isInicioSesionClicked: boolean) {
+    this.botonLoginSesionIniciadoVariable = isInicioSesionClicked;
   }
 }
