@@ -15,15 +15,24 @@ import { Empresa } from './empresa/empresa';
   styleUrl: './app.css',
 })
 export class App implements OnInit {
-  protected readonly title = signal('Teresa');
 
-  botonLoginSesionIniciadoVariable: boolean = false;
+  isPortadaShowed = true;
+  isLoginShowed = false;
+
+  tipoUsuarioSesion: string = '';
 
   ngOnInit(): void {
     initFlowbite();
   }
 
-  inicioSesionLoginClicked(isInicioSesionClicked: boolean) {
-    this.botonLoginSesionIniciadoVariable = isInicioSesionClicked;
+  capturarTipoUsuarioEmitido(tipoUsuarioEmited: string) {
+    this.tipoUsuarioSesion = tipoUsuarioEmited
+    this.isPortadaShowed = false;
+    this.isLoginShowed = false;
+  }
+
+  capturarIsInicioDeSesionEmitido(isInicioDeSesionEmited: boolean) {
+    this.isLoginShowed = isInicioDeSesionEmited;
+    this.isPortadaShowed = false;
   }
 }

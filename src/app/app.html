@@ -1,14 +1,28 @@
 <router-outlet />
 
-<!--<app-empresa></app-empresa>-->
-<!--<app-carrera></app-carrera>-->
-<!--<app-estudiante></app-estudiante>-->
+@if (isPortadaShowed){
+  <app-portada
+    (isInicioDeSesionEmited)="capturarIsInicioDeSesionEmitido($event)"
+  ></app-portada>
+}
 
-@if (botonLoginSesionIniciadoVariable){
-  <app-empresa></app-empresa>
-} @else {
+@if (isLoginShowed){
   <app-login
-    [nombreCarrera]="'Psicologia'"
-    (inicioDeSesion)="inicioSesionLoginClicked($event)"
+    (tipoUsuarioEmited)="capturarTipoUsuarioEmitido($event)"
   ></app-login>
+}
+
+@switch (tipoUsuarioSesion) {
+  @case ('empresa') {
+    <app-empresa></app-empresa>
+  }
+  @case ('carrera') {
+    <app-carrera></app-carrera>
+  }
+  @case ('estudiante') {
+    <app-estudiante></app-estudiante>
+  }
+  @default {
+    <p></p>
+  }
 }

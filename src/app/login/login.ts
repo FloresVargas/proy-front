@@ -1,23 +1,32 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
 
-  @Input()
-  nombreCarrera: string = 'Sistemas';
+  usuario: string = '';
 
   @Output()
-  inicioDeSesion = new EventEmitter<boolean>();
+  tipoUsuarioEmited = new EventEmitter<string>();
 
+  inicioDeSesionClicked() {
+    console.log(this.usuario);
 
-  protected inicioDeSesionClicked() {
-    console.log('Inicio deSesion clicked');
-    this.inicioDeSesion.emit(true);
+    let usuarioValidado =
+      this.usuario === 'empresa' || this.usuario === 'estudiante' || this.usuario === 'carrera';
+
+    if (usuarioValidado) {
+      this.tipoUsuarioEmited.emit(this.usuario);
+      return;
+    } else {
+      alert('Usuario no reconocido');
+    }
+
   }
 
 }
