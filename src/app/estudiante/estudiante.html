@@ -440,15 +440,40 @@
     <nav
       class="flex items-center justify-between p-4 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
 
-      <div>
 
-        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
-          Panel del estudiante
-        </h1>
+      <div class="flex flex-row gap-2">
+        <!-- BOTÓN MENÚ (Tres barras) -->
+        <button
+          type="button"
+          class="p-2 text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600">
 
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-          Seguimiento de tu formación y oportunidades profesionales
-        </p>
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+
+          </svg>
+
+        </button>
+
+        <div>
+
+          <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Panel del estudiante
+          </h1>
+
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Seguimiento de tu formación y oportunidades profesionales
+          </p>
+
+        </div>
 
       </div>
 
@@ -478,29 +503,6 @@
           </span>
 
         </button>
-
-        <!-- USUARIO -->
-
-        <div class="flex items-center">
-
-          <img
-            class="w-9 h-9 rounded-full"
-            src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-            alt="Usuario">
-
-          <div class="hidden ml-3 md:block">
-
-            <p class="text-sm font-medium text-gray-900 dark:text-white">
-              Juan Pérez
-            </p>
-
-            <p class="text-xs text-gray-500 dark:text-gray-400">
-              Psicología
-            </p>
-
-          </div>
-
-        </div>
 
       </div>
 
