@@ -4,7 +4,8 @@
        SIDEBAR
   ========================== -->
   <aside
-    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    [ngClass]="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform duration-300"
     aria-label="Sidebar">
 
     <div class="h-full px-3 py-4 overflow-y-auto bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -433,17 +434,19 @@
        CONTENIDO PRINCIPAL
   ========================== -->
 
-  <div class="p-4 sm:ml-64">
+  <div
+    [ngClass]="isSidebarOpen ? 'ml-64' : 'ml-0'"
+    class="p-4 transition-all duration-300">
 
     <!-- TOPBAR -->
 
     <nav
-      class="flex items-center justify-between p-4 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-
+      class="sticky top-4 z-30 flex items-center justify-between p-4 mb-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/60 dark:border-gray-700/60 shadow-md">
 
       <div class="flex flex-row gap-2">
         <!-- BOTÓN MENÚ (Tres barras) -->
         <button
+          (click)="mostrarMenuAside()"
           type="button"
           class="p-2 text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600">
 
